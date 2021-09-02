@@ -1,0 +1,937 @@
+main 
+{
+    opacity: 0;
+}
+
+/* Main Content */ 
+
+.about-omega 
+{
+    @include maxWidth;
+    padding: $spacing-between;
+    height: auto;
+    opacity: 1;
+
+    &__heading 
+    {
+        @include description-heading;
+        text-align: center;
+        
+        span 
+        {
+            font-weight: bold;
+            position: relative;
+            &:before 
+            {
+                content: '';
+                position: absolute;
+                bottom: -8%;
+                left: 0;
+                
+                width: 100%;
+                height: 1px;
+                background: $primaryClr;
+                
+            }
+        }
+    }
+
+    &__container 
+    {
+        @include flexbox(space-between, center);
+        padding-top: 5rem;
+
+        &__showcase 
+        {
+            width: 50%;
+            img 
+            {
+                width: 100%;
+                height: auto;
+            
+            }
+        }
+
+        &__description  
+        {   
+            
+            width: 35%;
+
+            p 
+            {
+                @include  description-content;
+            }
+
+            a 
+            {
+                @include links();
+                margin-top: 2.5rem;
+                display: inline-block;
+                padding: 1.5rem;
+                @include flexbox(space-between, center);
+                width: 200px;
+                position: relative;
+                z-index: 30;
+                overflow: hidden;
+                &:before 
+                {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 40%;
+                    z-index: -1;
+                    height: 100%;
+                    background: $primaryClr;
+                    opacity: 0.5;
+                }
+                &:hover::before
+                {
+                    width: 100%;
+                }
+                &:hover 
+                {
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+.projects 
+{
+    width: 100%;
+    height: auto;
+    margin-top: -7rem;
+    padding: 8rem 0;
+    position: relative;
+    &:before 
+    {
+        content: '';
+        width: 100%;
+        height: 2000px;
+        background: $primaryClr;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -10;
+    }
+    &__heading 
+    {
+        text-align: center;
+
+        h2 
+        {
+            @include proj-heading;
+            margin-bottom: 1rem;
+        }
+
+        p 
+        {
+            @include proj-heading-sub
+        }
+    }
+
+    &__container 
+    {
+        @include maxWidth();
+        padding: $spacing-between;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-content: center;
+        gap: 2rem;
+        grid-template-areas: 'p1 p2' 'p3 p4' 'p5 p6' 'p7 p8';
+
+
+        // Grid areas 
+
+        .p1 
+        {
+            grid-area: p1;
+        }
+
+        
+        .p2
+        {
+            grid-area: p2;
+        }
+
+        
+        .p3 
+        {
+            grid-area: p3;
+        }
+
+        
+        .p4
+        {
+            grid-area: p4;
+        }
+
+        
+        .p5
+        {
+            grid-area: p5;
+        }
+
+        
+        .p6
+        {
+            grid-area: p6;
+        }
+
+        
+        .p7
+        {
+            grid-area: p7;
+        }
+
+        
+        .p8
+        {
+            grid-area: p8;
+        }
+
+        &__project 
+        {
+            position: relative;
+            transform-style: preserve-3d;
+            overflow: hidden;
+            &:hover .hover-content span:before,
+            &:hover .hover-content span
+            {
+                width: 100%;
+                opacity: 1;
+                
+            }
+
+            
+            img 
+            {
+                width: 100%;
+                height: 420px;
+                &:hover 
+                {
+                    opacity: 0;
+                }
+            }
+
+
+            a 
+            {
+                @include resetLinks(#fff);
+                transform: perspective(1000px);
+
+
+
+
+                .content 
+                {
+                    position: absolute;
+                    top: 5%;
+                    left: 5%;
+                    width: 100%;
+                    height: 100%;
+                    overflow: hidden;
+
+
+                    p 
+                    {
+                        @include proj-heading-sub;
+                        font-size: 1.5rem;
+                    }
+
+                    h2 
+                    {
+                        @include proj-heading;  
+                        font-weight: bold;
+                    }
+                }
+
+                .hover-content 
+                {
+                    position: absolute;
+                    left: 5%;
+                    bottom: 10%;
+
+                    span 
+                    {
+                        font-weight: bold;
+                        position: relative;
+                        opacity: 0;
+                        &:before 
+                        {
+                            content: ''; 
+                            position: absolute;
+                            top: -8px;
+                            left: 0;
+                            width: 0%;
+                            height: 3px;
+                            background: #fff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .link 
+    {
+        @include flexbox(center, center);
+
+
+         
+        a 
+        {
+            @include links();
+            margin-top: 2.5rem;
+            display: inline-block;
+            padding: 1.5rem;
+            @include flexbox(space-between, center);
+            width: 210px;
+            position: relative;
+            z-index: 30;
+            overflow: hidden;
+            &:before 
+            {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 40%;
+                z-index: -1;
+                height: 100%;
+                background: $primaryClr;
+                opacity: 0.5;
+            }
+            &:hover::before
+            {
+                width: 100%;
+            }
+            &:hover 
+            {
+                color: #fff;
+            }
+        }
+    }
+}
+
+// Partners 
+
+.partners 
+{
+    background: #eee;
+    height: auto;
+    padding: $spacing-between;
+
+    &__heading 
+    {
+        text-align: center;
+        margin-bottom: 4rem;
+
+        h2 
+        {
+            @include proj-heading;
+            color: $secondClr;
+            margin-bottom: 1rem;
+        }
+
+        p 
+        {
+            @include proj-heading-sub;
+            color: $primaryClr;
+        }
+    }
+    &__container 
+    {
+        display: grid;
+        justify-items: center;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        text-align: center;
+        align-items: center;
+        @include maxWidth;
+
+        img 
+        {
+            text-align: center;
+            display: inline-block;
+            margin-top: 4rem;
+        }
+      
+    }
+
+    .showcase-images 
+    {
+        @include maxWidth;
+        display: grid; 
+        padding-top: 10rem;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        align-items: center;
+        gap: 15px;
+        img 
+        {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    .services 
+    {
+        padding-top: 8rem;
+        @include maxWidth();
+        &__heading 
+        {
+            h2 
+            {
+                @include proj-heading;
+                color: $secondClr;
+                margin-bottom: 1rem;
+            }
+
+            p 
+            {
+                @include proj-heading-sub;
+                color: $primaryClr;
+            }
+        }
+
+        &__container 
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            margin-top: 5rem;
+            justify-items: center;
+
+            .service 
+            {
+                width: 80%;
+                margin-bottom: 5rem;
+
+                h2 
+                {
+                    @include service-heading;
+                    margin-bottom: 2rem;
+                    position: relative;
+                    &:before 
+                    {
+                        content: '';
+                        position: absolute;
+                        bottom: -10px;
+                        left: 0;
+                        width: 10%;
+                        height: 2px;
+                        background: $primaryClr;
+                    }
+                }
+
+                p 
+                {
+                    @include service-p;
+                    margin-bottom: 2rem;
+                }
+
+                a 
+                {
+                    @include links();
+                    margin-top: 2.5rem;
+                    display: inline-block;
+                    padding: 1.5rem;
+                    @include flexbox(space-between, center);
+                    width: 210px;
+                    position: relative;
+                    z-index: 30;
+                    overflow: hidden;
+                    &:before 
+                    {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 40%;
+                        z-index: -1;
+                        height: 100%;
+                        background: $primaryClr;
+                        opacity: 0.5;
+                    }
+                    &:hover::before
+                    {
+                        width: 100%;
+                    }
+                    &:hover 
+                    {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    .contact-us 
+    {
+        @include maxWidth;
+        background: $primaryClr;
+        padding: 8rem 0;
+        text-align: center;
+        margin-top: 5rem;
+        @include flexbox(center, center);
+        flex-direction: column;
+        z-index: 4;
+        position: relative;
+
+        h2 
+        {
+            @include proj-heading-sub;
+        }
+
+
+        a 
+        {
+            @include links();
+            margin-top: 2.5rem;
+            display: inline-block;
+            padding: 1.5rem;
+            @include flexbox(space-between, center);
+            width: 210px;
+            position: relative;
+            z-index: 30;
+            overflow: hidden;
+            color: #fff;
+            &:before 
+            {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 40%;
+                z-index: -1;
+                height: 100%;
+                background: #fff;
+                opacity: 0.5;
+            }
+            &:hover::before
+            {
+                width: 100%;
+            }
+            &:hover 
+            {
+                color: #fff;
+            }
+        }
+    }
+}
+
+
+
+
+/* BREAKPOINTS */ 
+
+@media screen and(max-width: 1450px) {
+    .about-omega 
+    {
+        @include maxWidthTwo;
+        
+        &__container 
+        {
+            &__description 
+            {
+                width: 40%;
+            }
+
+            &__showcase 
+            {
+                width: 55%;
+            }
+        }
+    }
+
+    .projects , .partners
+    {
+        &__container 
+        {
+            @include maxWidthTwo;
+        }
+    }
+
+    .partners 
+    {
+        .showcase-images , .services
+        {
+            @include maxWidthTwo;
+        }
+    }
+
+    .contact-us 
+    {
+        @include maxWidthTwo;
+    }
+}
+
+@media screen and(max-width: 1200px) {
+    .about-omega 
+    {
+        @include maxWidthThree;
+        
+        &__container 
+        {
+            padding: $spacing-between;
+            &__description 
+            {
+                width: 35%;
+            }
+
+            &__showcase 
+            {
+                width: 60%;
+            }
+        }
+    }
+
+    .projects , .partners
+    {
+        &__container 
+        {
+            @include maxWidthThree;
+        }
+    }
+
+    .partners 
+    {
+        .showcase-images , .services
+        {
+            @include maxWidthThree;
+        }
+    }
+
+    .contact-us 
+    {
+        @include maxWidthThree;
+    }
+}
+
+@media screen and (max-width: 950px) 
+{
+    .about-omega 
+    {
+        @include maxWidthThree;
+        
+        &__container 
+        {
+            padding: $spacing-between;
+            flex-wrap: wrap !important;
+            flex-direction: column;
+            padding: 5rem 4rem;
+            &__description 
+            {
+                width: 100%;
+                padding: $spacing-between;
+            }
+
+            &__showcase 
+            {
+                width: 100%;
+            }
+        }
+    }
+
+    .projects 
+    {
+        &__container 
+        {
+            grid-template-columns: 100%;
+            grid-template-areas: 'p1' 'p2' 'p3' 'p4' 'p5' 'p6' 'p7' 'p8';
+            padding: 5rem 4rem;
+            position: relative;
+            gap: 50px;
+
+
+            &__project 
+            {
+                img 
+                {
+                    width: 100%;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+
+    .partners 
+    {
+        &__container
+        {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    .partners 
+    {
+        .showcase-images , .services
+        {
+            padding: 6rem 4rem;
+        }
+    }
+
+
+    .contact-us 
+    {
+        margin: 0;
+        padding: 0;
+    }
+
+}
+
+
+@media screen and(max-width: 768px) 
+{
+
+    .about-omega 
+    {
+        &__heading 
+        {
+           @include description-heading-resp;
+           text-align: left;
+           padding: 0 4rem;
+        }
+    }
+.partners 
+{
+    .services 
+    {
+       padding: 0rem 4rem;
+        &__container 
+        {
+            grid-template-columns: 1fr;
+            
+
+            .service 
+            {
+                width: 100%;
+            }
+        }
+    }
+}
+} 
+
+@media screen and(max-width: 500px) 
+{
+
+    .about-omega 
+    {
+        &__heading 
+        {
+           @include description-heading-resp;
+           text-align: left;
+           padding: 0 2rem;
+        }
+
+        &__container 
+        {
+            padding: 4rem 2rem;
+
+            &__description 
+            {
+                padding-top: 3rem;
+                width: 100%;
+                p 
+                {
+                    font-size: 1.2rem;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .projects 
+    {
+        position: relative;
+        &:before 
+        {
+            content: '';
+            width: 100%;
+            height: 2500px;
+            background: $primaryClr;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -10;
+        }
+       
+
+        &__container 
+        {
+            padding: 5rem 2rem;
+
+            &__project 
+            {
+                a 
+                {
+                    .content 
+                    {
+                        p 
+                        {
+                            font-size: 1.2rem;
+                        }
+    
+                        h2 
+                        {
+                            font-size: 1.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+.partners 
+{ 
+
+    &__container 
+    {
+        img 
+        {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .services 
+    {
+       padding: 0rem 2rem;
+        &__container 
+        {
+            grid-template-columns: 1fr;
+            
+
+            .service 
+            {
+                width: 100%;
+            }
+        }
+    }
+
+    .showcase-images 
+    {
+        padding: 5rem 2rem;
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+}
+} 
+
+@media screen and(max-width: 365px) 
+{
+    .about-omega 
+    {
+        &__heading 
+        {
+           @include description-heading-resp;
+           text-align: left;
+           padding: 0 1rem;
+        }
+
+        &__container 
+        {
+            padding: 4rem 1rem;
+
+            &__description 
+            {
+                padding-top: 3rem;
+                width: 100%;
+                p 
+                {
+                    font-size: 1.2rem;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .projects 
+    {
+        position: relative;
+      
+        &:before 
+        {
+            content: '';
+            width: 100%;
+            height: 2250px;
+            background: $primaryClr;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -10;
+        }
+       
+
+        &__container 
+        {
+            padding: 5rem 1rem;
+
+            &__project 
+            {
+                a 
+                {
+                    .content 
+                    {
+                        p 
+                        {
+                            font-size: 1.1rem;
+                        }
+    
+                        h2 
+                        {
+                            font-size: 1.2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .partners 
+    {
+        &__heading 
+        {
+            padding: 0 1rem;
+        }
+    }
+
+    .partners 
+{ 
+
+    &__container 
+    {
+        img 
+        {
+            width: 100%;
+            height: auto;
+        }
+    }
+    .services 
+    {
+       padding: 0rem 1rem;
+        &__container 
+        {
+            grid-template-columns: 1fr;
+            
+
+            .service 
+            {
+                width: 100%;
+            }
+        }
+    }
+
+    .showcase-images 
+    {
+        padding: 5rem 1rem;
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+
+}
+}

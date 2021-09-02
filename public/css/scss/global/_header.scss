@@ -1,0 +1,425 @@
+
+/* HEADER */
+
+.header 
+{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+
+    &__video-bg
+    {
+        object-fit: cover;
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: -1;
+        opacity: 0;
+    }
+
+
+    &__container 
+    {
+        position: absolute;
+        left: 0;
+        @include flexbox(space-between, center);
+        width: 100%;
+        height: 120px;
+        z-index: 50;
+        padding: $padding;
+
+
+
+        &__nav 
+        {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            width: 100%;
+            height: 100vh;
+            background: $primaryClr;
+            opacity: 0; 
+            visibility: hidden;
+            z-index: 100;
+
+            &__content 
+            {
+                @include flexbox(space-between, center);
+                width: 100%;
+                height: 100%;
+                @include maxWidth ;
+            }
+
+
+           .menu 
+           {
+               z-index: 6;
+               &__list 
+               {
+                   list-style: none;
+                   padding: 10px 0;
+
+
+                   &__link 
+                   {
+                       @include resetLinks(#fff);
+                       @include nav-links;
+                       position: relative;
+                       opacity: 0;
+                       margin-Top: -5rem;
+                       transition: all 0.3s ease-in-out;
+                       &:hover 
+                       {
+                           transition: all 0.3s ease-in-out;
+                       }
+                   }
+
+               }
+
+           } 
+
+           .contact-info 
+           {
+    
+               padding: 2rem;
+
+
+               
+            .box 
+            {
+                margin-bottom: 2rem;
+                opacity: 0;
+                a 
+                {
+                    @include resetLinks(#fff);
+                    @include contact-info;
+                    display: block;
+                    padding: 5px 0;
+
+                }
+            }
+
+            &__social-media 
+            {   
+                opacity: 0;
+                a 
+                {
+                    @include resetLinks(#fff);
+                    @include contact-info;
+                    padding: 0 8px;
+                }
+            }
+           }
+        }
+
+
+        &__logo 
+        {
+            @include logo-home;
+            font-weight: bold;
+            @include resetLinks(#fff);
+            z-index: 110;
+            opacity: 0;
+        }
+
+
+        &__toggle-menu 
+        {
+            width: 60px;
+            height: 60px;
+            background: #fff;
+            cursor: pointer;
+            position: relative ;
+            border-radius: 50%;
+            z-index: 100;
+            opacity: 0;
+            position: fixed;
+            box-shadow: 0 0  1px rgba(0,0,0,0.1);
+            right: 3%;
+
+            .line 
+            {
+                width: 50%;
+                height: 2px;
+                background: $primaryClr;
+                position: absolute;
+                transform: translate(-50%, -50%);
+                top: 50%;
+                left: 50%;
+            }
+
+            .line-top 
+            {
+                top: 35%;
+            }
+
+            .line-center 
+            {
+                top: 50%;
+            }
+
+            .line-bottom 
+            {
+                top: 65%;
+            }
+
+        }
+    }
+
+    .showcase 
+    {
+        width: 100%;
+        height: 100%;
+        @include flexbox(center, center);
+        opacity: 0;
+
+        &__content  
+        {
+            text-align: center;
+
+            h1 
+            {
+                @include showcase-heading;
+                font-weight: bold;  
+            }
+            
+            &__logo-showcase
+            {
+            
+                text-align: center;
+                width: 250px;
+                height: 250px;
+                opacity: 0.7;
+            }
+            h2 
+            {
+                @include showcase-heading;
+                margin-bottom: 3rem;
+
+                span 
+                {
+                    font-weight: bold;
+                }
+            }
+
+            .pulse-btn 
+            {
+                width: 45px;
+                height: 45px;
+                background: #fff;
+                display: inline-block;
+                text-align: center;
+                border-radius: 50%;
+                animation: pulse 1.8s infinite; 
+                box-shadow: 0 0 0 0 rgba(#fff, .5);
+
+                @keyframes pulse {
+                    0% 
+                    {
+                        transform: scale(0.9);
+                    }
+
+                    70% 
+                    {
+                        transform: scale(1.1);
+                        box-shadow: 0 0 0 50px rgba(#fff,0);
+                    } 
+
+                    100% 
+                    {
+                        transform: scale(0.9);
+                        box-shadow: 0 0 0 0 rgba(#fff, 0);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/* BREAKPOINTS */ 
+
+@media screen and(max-width: 1450px) {
+    .header 
+    {
+        &__container 
+        {
+            &__nav 
+            {
+                &__content 
+                {
+                    @include maxWidthTwo;
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1200px) {
+    .header 
+    {
+        &__container 
+        {
+            &__nav 
+            {
+                &__content 
+                {
+                    @include maxWidthThree;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and(max-width: 950px) {
+    .header 
+    {
+        &__container 
+        {
+           
+            &__nav 
+            {
+                &__content 
+                {
+                    @include flexbox(center, start);
+                    flex-wrap: wrap;
+                    padding: 0 4rem;
+                    
+                    flex-direction: column;
+                    .contact-info 
+                    {
+                        padding: 0;
+                        padding-top: 2rem;
+                        &__container 
+                        {
+                            display: none;
+
+                        }
+
+                        &__social-media  
+                        {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 500px) {
+    .header 
+    {
+        &__container 
+        {
+            padding: 0 2rem;
+            &__nav 
+            {
+                &__content 
+                {
+                    @include flexbox(center, start);
+                    flex-wrap: wrap;
+                    padding: 0 2rem;
+                    
+                    flex-direction: column;
+                    .contact-info 
+                    {
+                        padding: 0;
+                        padding-top: 2rem;
+                        &__container 
+                        {
+                            display: none;
+
+                        }
+
+                        &__social-media  
+                        {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+
+        .showcase 
+        {
+            &__content 
+            {
+                img 
+                {
+                    width: 180px;
+                    height: auto;
+                }
+
+                h2 
+                {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 365px) 
+{
+    .header 
+    {
+        &__container 
+        {
+            padding: 0 1rem;
+            &__nav 
+            {
+                &__content 
+                {
+                    @include flexbox(center, start);
+                    flex-wrap: wrap;
+                    padding: 0 1rem;
+                    
+                    flex-direction: column;
+                    .contact-info 
+                    {
+                        padding: 0;
+                        padding-top: 2rem;
+                        &__container 
+                        {
+                            display: none;
+
+                        }
+
+                        &__social-media  
+                        {
+                            text-align: left;
+                        }
+                    }
+                }
+            }
+        }
+
+        .showcase 
+        {
+            &__content 
+            {
+                padding: 0 1rem;
+                img 
+                {
+                    width: 180px;
+                    height: auto;
+                }
+
+                h2 
+                {
+                    font-size: 1.8rem;
+                    
+                }
+            }
+        }
+    }
+}

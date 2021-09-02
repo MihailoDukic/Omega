@@ -1,0 +1,19 @@
+
+
+@media screen and(max-width: 768px) 
+{
+
+    .services-main
+    {
+        .partners 
+        {
+            .services 
+            {
+                &__heading 
+                {
+                    padding-top: 6rem;
+                }
+            }
+        }
+    }
+}

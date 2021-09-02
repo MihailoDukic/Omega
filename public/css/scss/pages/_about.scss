@@ -1,0 +1,531 @@
+.header-about 
+{
+    height: 100vh;
+    width: 100%;
+    background: #e27d60;
+    
+    .header-showcase 
+    {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        opacity: 0;
+        &__content 
+        {
+            
+            width: 100%;
+            height: 100%;
+            @include flexbox(center, center);
+            h2 
+            {
+                @include description-content;
+                color: #fff;
+                font-size: 3rem;
+                line-height: 3rem;
+
+                span 
+                {
+                    font-weight: bold;
+                }
+            }
+
+            .overlay 
+            {
+                position: absolute;
+                color: #fff;
+                font-weight: bold;
+                display: inline-block;
+                font-size: 12vw;
+                left: 2.5%;
+                bottom: 0%;
+                opacity: 0.1;
+            }   
+        }
+    }
+}
+
+main 
+{
+
+    .ourTeam 
+    {
+        padding: $spacing-between;
+        background: #eee;
+
+        &__heading 
+        {
+            text-align: center;
+            padding: $spacing-between-inner;
+
+            h2 
+            {
+                @include proj-heading;
+                color: $secondClr;
+                margin-bottom: 1rem;
+            }
+
+            p 
+            {
+                @include proj-heading-sub;
+                color: $primaryClr;   
+            }
+        }
+
+        &__container 
+        {
+           
+            @include maxWidth;
+            padding: 2.5rem 0;
+          
+            display: grid;
+            justify-content: space-between;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: 'mem1 mem2' 'mem3 mem4';
+            position: relative;
+
+
+            .mem01 
+            {
+                grid-area: mem1;
+                margin-left: -5rem;
+            }
+
+            .mem02
+            {
+                grid-area: mem2;
+                margin-left: 5rem;
+                margin-top: 5rem;
+
+            }
+
+            .mem03 
+            {
+                grid-area: mem3;
+                margin-left: -5rem;
+                margin-top: 5rem;
+
+            }
+
+            .mem04 
+            {
+                grid-area: mem4;
+                margin-left: 5rem;
+            }
+
+            .member 
+            {
+                padding: 3rem 0;
+                width: 100%;
+                height: auto;
+
+                img 
+                {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+
+                &__details 
+                {
+                    @include flexbox(center, center);
+
+                    .name 
+                    {
+                        background: $primaryClr;
+                        height: auto;
+                        width: 55%;
+                        padding: 1rem;
+
+                        h2 ,p 
+                        {
+                            color: #fff;
+                            font-weight: 600;
+                        }
+
+                        h2 
+                        {
+                            margin-bottom: 1rem;
+                        }
+                    }
+
+                    .role 
+                    {
+                        background: $secondClr;
+                        height: auto;
+                        width: 45%;
+                        @include flexbox(center, center);
+                        padding: 1rem;
+
+                        h2 
+                        {
+                            color: #fff;
+                            font-weight: 600;
+                            letter-spacing: 2px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .link-join 
+        {
+            text-align: right;
+            display: block;
+            @include proj-heading;
+            @include resetLinks($secondClr);
+            font-weight: 600;
+            margin-right: 8rem;
+            position: relative;
+            &:before 
+            {
+                content: '';
+                position: absolute;
+                top: 50%;
+                right: -25%;
+               
+                width: 24%;
+                height: 1px;
+                background: $primaryClr;
+            }
+            &:hover 
+            {
+                color: $primaryClr;
+            }
+        }
+    }
+
+
+
+
+    .partners-about 
+    {
+        margin: 0;
+        padding: 0;
+
+        .services 
+        {
+            margin: 0 auto;
+         
+            margin-bottom: 5rem;
+        }
+    }
+
+    .discover 
+    {
+        padding: $spacing-between;
+        background: #eee;
+
+        &__heading 
+        {
+            h2 
+            {
+                @include proj-heading;
+                color: $primaryClr;
+                text-align: center;
+                
+            }
+        }
+
+
+    }
+}
+
+.footer-about 
+{
+    padding-top: 5rem;
+}
+
+
+
+
+/* BREAKPOINTS */ 
+
+@media screen and(max-width: 1450px) 
+{
+    .header-about 
+    {
+        .header-showcase 
+        {
+            &__content 
+            {
+                h2 
+                {
+                    @include maxWidthTwo;
+                }
+
+                .overlay
+                {
+                   
+                }
+            }
+        }
+    }
+    main 
+    {   
+
+        .ourTeam 
+        {
+     
+            &__container 
+            {
+                @include maxWidthTwo;
+                .mem01,.mem02 , .mem03 , .mem04
+                {
+                    margin: 0;
+                }
+                gap: 20px;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 1200px) 
+{
+    .header-about 
+    {
+        .header-showcase 
+        {
+            &__content 
+            {
+                h2 
+                {
+                    @include maxWidthThree;
+                }
+
+                .overlay
+                {
+                  
+                    bottom: 0;
+                }
+            }
+        }
+    }
+    main 
+    {
+
+        .ourTeam 
+        {
+     
+            &__container 
+            {
+                @include maxWidthThree;
+                .mem01,.mem02 , .mem03 , .mem04
+                {
+                    margin: 0;
+                }
+                gap: 20px;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 950px) 
+{
+    .header-about 
+    {
+        .header-showcase 
+        {
+            &__content 
+            {
+                h2 
+                {
+                    @include maxWidthTwo;
+                    padding: 0 4rem;
+                }
+
+                .overlay
+                {
+                   
+                }
+            }
+        }
+    }
+    main 
+    {
+
+        .ourTeam 
+        {
+     
+            &__container 
+            {
+                @include maxWidthThree;
+                padding: 0 4rem;
+                grid-template-columns: 100%;
+                grid-template-areas: 'mem1' 'mem2' 'mem3' 'mem4';
+                .mem01,.mem02 , .mem03 , .mem04
+                {
+                    margin: 0;
+                }
+                gap: 20px;
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 768px) 
+{
+    .header-about 
+    {
+        height: 80vh;
+        .header-showcase 
+        {
+            height: 80vh;
+            &__content 
+            {
+                h2 
+                {
+                    @include maxWidthTwo;
+                    font-size: 2.5rem;
+                    line-height: 2.5rem;
+                    
+                }
+
+                .overlay
+                {
+                    font-size: 10vw;
+                }
+            }
+        }
+    }
+    main 
+    {
+        .ourTeam 
+        {
+            &__heading 
+            {
+                padding: 0;
+            }
+            &__container 
+            {
+                @include maxWidthThree;
+                padding: 0 4rem;
+                grid-template-columns: 100%;
+                grid-template-areas: 'mem1' 'mem2' 'mem3' 'mem4';
+                .mem01,.mem02 , .mem03 , .mem04
+                {
+                    margin: 0;
+                }
+                gap: 20px;
+
+                .member 
+                {
+                    &__details 
+                    {
+                        flex-direction: column;
+                        @include flexbox(start, start);
+                        
+                        .name ,.role 
+                        {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 500px) 
+{
+    .header-about 
+    {
+        height: 60vh;
+        .header-showcase 
+        {
+            height: 60vh;
+            &__content 
+            {
+                h2 
+                {
+                    @include maxWidthTwo;
+                    font-size: 1.8rem;
+                    line-height: 2rem;
+                    padding: 0 2rem;
+                }
+
+                .overlay
+                {
+                  
+                }
+            }
+        }
+    }
+    main 
+    {
+
+        .ourTeam 
+        {
+            
+            &__container 
+            {
+                @include maxWidthThree;
+                padding: 0 2rem;
+                grid-template-columns: 100%;
+                grid-template-areas: 'mem1' 'mem2' 'mem3' 'mem4';
+                .mem01,.mem02 , .mem03 , .mem04
+                {
+                    margin: 0;
+                }
+                gap: 20px;
+
+                .member 
+                {
+                    &__details 
+                    {
+                        flex-direction: column;
+                        @include flexbox(start, start);
+                        
+                        .name ,.role 
+                        {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and(max-width: 365px) 
+{
+    .header-about 
+    {
+        height: 60vh;
+        .header-showcase 
+        {
+            height: 60vh;
+            &__content 
+            {
+                h2 
+                {
+                    @include maxWidthTwo;
+                    font-size: 1.8rem;
+                    line-height: 2rem;
+                    padding: 0 1rem;
+                }
+
+                .overlay
+                {
+                  
+                }
+            }
+        }
+    }
+    main 
+    {
+        .ourTeam 
+        {
+            padding: $spacing-between-inner;
+
+            &__heading 
+            {
+                margin-top: 4rem;
+            }
+
+            &__container 
+            {
+                padding: 0 1rem;
+            }
+        }
+    }
+}
